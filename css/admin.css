@@ -10,26 +10,24 @@
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #e0e0e0; /* Bordure légèrement plus foncée */
+    border: 1px solid #e0e0e0;
 }
 
 th, td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #e0e0e0; /* Bordure légèrement plus foncée */
+    border: 1px solid #e0e0e0;
 }
 
-/* Style de l'en-tête du tableau */
 th {
-    background-color: #e0e0e0; /* Couleur de fond pour l'en-tête */
-    color: #333; /* Couleur du texte de l'en-tête */
+    background-color: #e0e0e0;
+    color: #333;
 }
 
-/* Style des lignes impaires du tableau (pour un zébrage alternatif) */
 tbody tr:nth-child(odd) {
-    background-color: #e9e9e9; /* Couleur de fond légèrement plus claire pour les lignes impaires */
+    background-color: #e9e9e9;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #e0e0e0; /* Couleur de fond légèrement plus claire pour les lignes impaires */
+    background-color: #e0e0e0;
 }

@@ -1,13 +1,13 @@
 /*    HEADER   */
 
 .c-navbar-top {
-    background-color: var(--red); /* Couleur de fond de la barre de navigation */
-    color: #fff; /* Couleur du texte */
-    padding: 10px 0; /* Espacement intérieur en haut et en bas */
+    background-color: var(--red);
+    color: #fff;
+    padding: 10px 0;
 }
 
 .c-navbar-top a {
-    color: #fff; /* Couleur des liens dans la barre de navigation */
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
@@ -36,8 +36,8 @@
 
 .text.nav-text a {
     font-weight: bold;
-    color: inherit; /* Réinitialise la couleur au style hérité */
-    text-decoration: none; /* Supprime le soulignage */
+    color: inherit;
+    text-decoration: none; 
 }
 
 /* BODY */
