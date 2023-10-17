@@ -40,8 +40,6 @@ body {
     background-color: #f2f2f2;
 }
 
-/* TEXT INSCRIPTION */
-
 h1 {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
@@ -124,36 +122,6 @@ h1 {
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
     background-color:#34CACA;
 } 
-
-/* BOUTON VALIDER */
-
-.button-center {
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
-}
-
-.btn {
-    display: inline-block;
-    width: 300px;
-    padding: 10px 10px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: 2px solid var(--blue);
-    border-radius: 3px;
-    color: white;
-    background-color: var(--blue);
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.btn:hover {
-    background-color: #008e8e;
-}
 
 /*   FOOTER   */
 
