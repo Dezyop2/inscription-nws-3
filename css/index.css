@@ -41,7 +41,7 @@ body {
 }
 
 h1 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     text-align: center;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding-top: 10px;
@@ -103,6 +103,7 @@ h1 {
 }
 .form-style-8 input[type="button"], 
 .form-style-8 input[type="submit"]{
+    margin-top: 10px;
     -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     box-shadow: inset 0px 1px 0px 0px #45D6D6;
