@@ -1,0 +1,157 @@
+/*    HEADER   */
+
+.c-navbar-top {
+    background-color: var(--red); /* Couleur de fond de la barre de navigation */
+    color: #fff; /* Couleur du texte */
+    padding: 10px 0; /* Espacement intérieur en haut et en bas */
+}
+
+.c-navbar-top a {
+    color: #fff; /* Couleur des liens dans la barre de navigation */
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 46.5%;
+}
+
+.nav2 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.nav2 div {
+    display: flex;
+    align-items: center;
+}
+
+.nav2 div img {
+    width: 10%;
+    padding: 10px;
+    margin-left: 5%;
+    margin-right: 10px;
+}
+
+/* BODY */
+
+body {
+    background-color: #f2f2f2;
+}
+
+/* TEXT INSCRIPTION */
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
+}
+
+/*   BOUTONS   */
+
+.text {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 20px;
+    /* font-family: "Comic Sans MS", sans-serif; */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.boutons {
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+input[type="text"] {
+    background-color: #ffffff;
+    width: 450px;
+    padding:10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #bababa;
+    box-shadow: 0 0 2px #bababa;
+}
+
+/* BOUTON VALIDER */
+
+.button-center {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    width: 300px;
+    padding: 10px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid var(--blue);
+    border-radius: 3px;
+    color: white;
+    background-color: var(--blue);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #008e8e;
+}
+
+/*   FOOTER   */
+
+body {
+    margin: 0;
+}
+
+.bottom-decoration {
+    position: fixed;
+    width: 100vw;
+    height: 10px;
+    bottom: 0;
+    z-index: 100;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.bottom-decoration .red {
+    background-color: var(--red);
+}
+
+.bottom-decoration .blue {
+    background-color: var(--blue);
+}
+
+.bottom-decoration .yellow {
+    background-color: var(--yellow);
+}
+
+.bottom-decoration div {
+    float: left;
+    width: calc(100%/3);
+    height: 100%;
+}
+
+:root {
+    --blue: #00a5a5;
+    --red: #dc3545;
+    --yellow: #fec800;
+}
