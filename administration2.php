@@ -1,3 +1,9 @@
+<?php 
+
+include ('php/post.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,13 +14,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://kit.fontawesome.com/66ce4227d4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/index.css">   
+    <link rel="stylesheet" href="css/index.css" href="css/admin.css">   
    
     <title>Inscription</title>
 </head>
+
 <body>
-    
-    <!-- NAV BAR  -->
+
+    <!-- NAV BAR ADMIN -->
 
     <nav class="c-navbar-top">
     </nav>
@@ -23,25 +30,19 @@
         <div>
             <a href="index.php"><img src="Logo_nws.png"></a>
         </div>
+        <div class="text nav-text">
+            <a href="administration.php">Liste des contacts</a>
+        </div>
+        <div class="text nav-text">
+            <a href="administration2.php">Modifier les contacts</a>
+        </div>
     </nav>
 
-    <!-- BOUTON CONNEXION -->
-    
-    <div class="form-style-8">
-        <form action="verification.php" method = "post">
-            <label for="password" class="text">Mot de passe :</label>
-            <input type="password" name="password" id="password" required>
-            <input type="submit" value="Se connecter" />
-        </form>
-    </div> 
-
-    <!-- FOOTER  -->
+    <!-- FOOTER COLOR -->
 
     <div class="bottom-decoration">
         <div class="red"></div>
         <div class="blue"></div>
         <div class="yellow"></div>
     </div>
-
 </body>
-</html>

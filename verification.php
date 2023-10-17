@@ -6,6 +6,6 @@ if (isset($_POST['password']) && $_POST['password'] === $password) {
     header('Location: administration.php');
 } else {
     // Mot de passe incorrect, rediriger vers la page de connexion
-    header('Location: index.php');
+    header('Location: connexion-admin.html');
 }
 ?>

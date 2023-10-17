@@ -1,13 +1,3 @@
-<?php include ('php/post.php');
-
-$password = "ratiobozo"; // Remplacez "votre_mot_de_passe" par le mot de passe réel
-
-if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== $password) {
-    header('Location: index.php');
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,7 +8,7 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== $password
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://kit.fontawesome.com/66ce4227d4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/index.css">   
+    <link rel="stylesheet" href="css/index.css" href="css/admin.css">
    
     <title>Inscription</title>
 </head>
@@ -32,15 +22,36 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== $password
     
     <nav class="nav2">
         <div>
-            <img src="Logo_nws.png">
+            <a href="index.php"><img src="Logo_nws.png"></a>
         </div>
         <div class="text nav-text">
-            <a href="">Administration</a>
+            <a href="administration.php">Liste des contacts</a>
         </div>
         <div class="text nav-text">
-            <a href="">Administration</a>
+            <a href="administration2.php">Modifier les contacts</a>
         </div>
     </nav>
+
+    <!-- TABLEAU ADMIN -->
+
+<div class="container tableau">
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php include ('php/get.php');?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
     <!-- FOOTER COLOR -->
 

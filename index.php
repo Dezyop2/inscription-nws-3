@@ -16,12 +16,15 @@
 <?php include ('php/post.php') ?>
 
 <body>
+
+    <!-- NAV BAR  -->
+
     <nav class="c-navbar-top">
     </nav>
     
     <nav class="nav2">
         <div>
-            <img src="Logo_nws.png">
+            <a href="index.php"><img src="Logo_nws.png"></a>
         </div>
         <div class="text nav-text">
             <a href="connexion-admin.html">Administration</a>
