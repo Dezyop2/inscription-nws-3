@@ -47,6 +47,14 @@ h1 {
     padding-top: 10px;
 }
 
+.text {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    padding-right: 25px;
+    text-size-adjust: auto;
+}
+
 /*   BOUTONS   */
 
 .form-style-8{
