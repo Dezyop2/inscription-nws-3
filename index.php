@@ -24,7 +24,7 @@
             <img src="Logo_nws.png">
         </div>
         <div class="text nav-text">
-            <a href="administration.php">Administration</a>
+            <a href="connexion-admin.html">Administration</a>
         </div>
     </nav>
 

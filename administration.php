@@ -1,3 +1,13 @@
+<?php include ('php/post.php');
+
+$password = "ratiobozo"; // Remplacez "votre_mot_de_passe" par le mot de passe réel
+
+if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== $password) {
+    header('Location: index.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,9 +23,10 @@
     <title>Inscription</title>
 </head>
 
-<?php include ('php/connexion.php') ?>
-
 <body>
+
+    <!-- NAV BAR ADMIN -->
+
     <nav class="c-navbar-top">
     </nav>
     
@@ -24,16 +35,13 @@
             <img src="Logo_nws.png">
         </div>
         <div class="text nav-text">
-            <a href="administration.php">Administration</a>
+            <a href="">Administration</a>
+        </div>
+        <div class="text nav-text">
+            <a href="">Administration</a>
         </div>
     </nav>
 
-    <!-- INSCRIPTION -->
-
-    <h1>
-        Votre inscription à été validé
-    </h1>
-    
     <!-- FOOTER COLOR -->
 
     <div class="bottom-decoration">

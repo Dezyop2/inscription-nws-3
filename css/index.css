@@ -34,6 +34,12 @@
     margin-right: 10px;
 }
 
+.text.nav-text a {
+    font-weight: bold;
+    color: inherit; /* Réinitialise la couleur au style hérité */
+    text-decoration: none; /* Supprime le soulignage */
+}
+
 /* BODY */
 
 body {
@@ -50,9 +56,29 @@ h1 {
 .text {
     font-family: 'Open Sans Condensed', sans-serif;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
     padding-right: 25px;
     text-size-adjust: auto;
+}
+
+
+/* mdp admin */
+
+.container {
+    margin: 100px auto;
+    width: 300px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label, input {
+    display: block;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
 }
 
 /*   BOUTONS   */
