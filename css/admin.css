@@ -1,28 +1,35 @@
-/*   TABLEAU ADMIN   */
+/* TABLEAU ADMIN */
 
-
-.tableau {
+.tableau-admin {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    padding-bottom: 20px;
-    text-align: center;
+    padding-top: 50px;
+    margin-right: 5%;
+    margin-left: 5%;
 }
-
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: rgb(225, 225, 225);
-}
-
-.table-responsive {
-    overflow-x: auto;
+    border: 1px solid #e0e0e0; /* Bordure légèrement plus foncée */
 }
 
 th, td {
     padding: 10px;
     text-align: center;
-    white-space: nowrap;
+    border: 1px solid #e0e0e0; /* Bordure légèrement plus foncée */
+}
+
+/* Style de l'en-tête du tableau */
+th {
+    background-color: #e0e0e0; /* Couleur de fond pour l'en-tête */
+    color: #333; /* Couleur du texte de l'en-tête */
+}
+
+/* Style des lignes impaires du tableau (pour un zébrage alternatif) */
+tbody tr:nth-child(odd) {
+    background-color: #e9e9e9; /* Couleur de fond légèrement plus claire pour les lignes impaires */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e0e0e0; /* Couleur de fond légèrement plus claire pour les lignes impaires */
 }

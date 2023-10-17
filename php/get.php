@@ -14,7 +14,8 @@ $resultat1 = $connexion->query($sql1);
 if ($resultat1->num_rows > 0) {
     // Afficher les données de la base de données dans un tableau
     while ($row = $resultat1->fetch_assoc()) {
-        echo "<tr>";
+        echo "<tr";
+        echo ">";
     
         echo "<td>" . $row["nom"] . "</td>";
         echo "<td>" . $row["prenom"] . "</td>";

@@ -8,7 +8,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://kit.fontawesome.com/66ce4227d4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/index.css" href="css/admin.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/admin.css">
+
    
     <title>Inscription</title>
 </head>
@@ -34,8 +36,7 @@
 
     <!-- TABLEAU ADMIN -->
 
-<div class="container tableau">
-    <div class="table-responsive">
+    <div class="tableau-admin">
         <table>
             <thead>
                 <tr>
@@ -50,7 +51,6 @@
             </tbody>
         </table>
     </div>
-</div>
 
 
     <!-- FOOTER COLOR -->
