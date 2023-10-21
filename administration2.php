@@ -1,28 +1,6 @@
 <?php 
 
-include ('php/post.php');
-
-$serveur = "localhost:3306";
-$utilisateur = "root";
-$motdepasse = "";
-$basededonnees = "inscription-nws";
-
-// Connexion à la base de données en utilisant les paramètres définis ci-dessus
-$connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
-
-// Vérifier la connexion
-if ($connexion->connect_error) {
-    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
-}
-
-if(isset($_POST['search'])) {
-    $search = $_POST['search'];
-    $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'"; 
-    $result = $connexion->query($query); // Utilisez $connexion pour exécuter la requête
-} else {
-    $query = "SELECT * FROM inscription";
-    $result = $connexion->query($query); // Utilisez $connexion pour exécuter la requête
-}
+include('php/connexion.php');
 
 ?>
 
@@ -62,23 +40,41 @@ if(isset($_POST['search'])) {
 
     <!-- BARRE DE RECHERCHE -->
 
-    <div class="recherche-barre">
-        <form method="post" action="administration3.php">
-            <input type="text" name="search" placeholder="Rechercher...">
-            <button type="submit"><i class="fas fa-search"></i></button>
+    <div class="search-bar">
+        <form method="POST" action="administration2.php">
+            <input type="text" name="search" placeholder="Rechercher par nom...">
+            <button type="submit" name="send">Rechercher</button>
         </form>
     </div>
 
-    <!-- Résultats de la recherche -->
-    <div class="resultats">
+    <div class="search-results">
         <?php
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div class="resultat-item">';
-            echo '<p>' . $row['nom'] . ' ' . $row['prenom'] . '</p>'; // Personnalisez l'affichage selon votre structure de base de données
-            echo '</div>';
+        if (isset($_POST['send'])) {
+            $search = $_POST['search'];
+            $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'";
+            $result = $connexion->query($query);
+
+            echo '<table class="tableau-admin">';
+            echo '<tr><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th></tr>';
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<td>' . $row['nom'] . '</td>';
+                    echo '<td>' . $row['prenom'] . '</td>';
+                    echo '<td>' . $row['email'] . '</td>';
+                    echo '<td>' . $row['telephone'] . '</td>';
+                    echo '</tr>';
+                }
+            } else {
+                echo '<tr><td colspan="4">Aucun résultat trouvé.</td></tr>';
+            }
+
+            echo '</table>';
         }
         ?>
     </div>
+
 
     <!-- FOOTER COLOR -->
 

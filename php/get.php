@@ -1,7 +1,7 @@
 <?php
 include ('connexion.php');
 
-$sql1 = "SELECT * FROM inscription ORDER BY nom ";
+$sql1 = "SELECT * FROM inscription WHERE suppr = 0 ORDER BY nom ";
 
 $resultat1 = $connexion->query($sql1);
 
