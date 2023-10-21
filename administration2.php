@@ -2,6 +2,12 @@
 
 include('php/connexion.php');
 
+if (isset($_POST['send'])) {
+    $search = $_POST['search'];
+    $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'";
+    $result = $connexion->query($query);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +16,7 @@ include('php/connexion.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo_nws.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,13 +72,10 @@ include('php/connexion.php');
                     echo '<td>' . $row['email'] . '</td>';
                     echo '<td>' . $row['telephone'] . '</td>';
                     echo '<td>';
-                    echo '<form method="POST" action="modifier_suppr.php">';
-                    echo '<input type="hidden" name="id" value="' . $row['suppr'] . '">';
-                    echo '<button type="submit">Modifier suppr</button>';
-                    echo '</form>';
+                    echo '<input type="button" value="supprimer" onclick="update_suppr.php(' . $row['suppr'] . ')">';
                     echo '</td>';
                     echo '</tr>';
-                }                
+                }                 
             } else {
                 echo '<tr><td colspan="4">Aucun résultat trouvé.</td></tr>';
             }
@@ -89,4 +93,25 @@ include('php/connexion.php');
         <div class="blue"></div>
         <div class="yellow"></div>
     </div>
+
+    <!-- requete sql suppr -->
+
+    <script>
+        function updateSuppr(id) {
+            $.ajax({
+                type: 'POST',
+                url: 'update_suppr.php',
+                data: { id: id },
+                success: function(response) {
+                    if (response === 'success') {
+                        alert('Mise à jour réussie');
+                    } else {
+                        alert('Échec de la mise à jour');
+                    }
+                }
+            });
+        }
+    </script>
+
 </body>
+</html>

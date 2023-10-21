@@ -1,9 +1,9 @@
 <?php
 include ('connexion.php');
 
-$sql1 = "SELECT * FROM inscription WHERE suppr = 0 ORDER BY nom ";
+$sql = "SELECT * FROM inscription WHERE suppr = 0 ORDER BY nom ";
 
-$resultat1 = $connexion->query($sql1);
+$resultat1 = $connexion->query($sql);
 
 if ($resultat1->num_rows > 0) {
     while ($row = $resultat1->fetch_assoc()) {
