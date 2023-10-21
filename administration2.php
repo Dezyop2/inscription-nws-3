@@ -64,8 +64,14 @@ include('php/connexion.php');
                     echo '<td>' . $row['prenom'] . '</td>';
                     echo '<td>' . $row['email'] . '</td>';
                     echo '<td>' . $row['telephone'] . '</td>';
+                    echo '<td>';
+                    echo '<form method="POST" action="modifier_suppr.php">';
+                    echo '<input type="hidden" name="id" value="' . $row['suppr'] . '">';
+                    echo '<button type="submit">Modifier suppr</button>';
+                    echo '</form>';
+                    echo '</td>';
                     echo '</tr>';
-                }
+                }                
             } else {
                 echo '<tr><td colspan="4">Aucun résultat trouvé.</td></tr>';
             }
