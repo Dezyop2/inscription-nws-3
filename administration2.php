@@ -2,6 +2,28 @@
 
 include ('php/post.php');
 
+$serveur = "localhost:3306";
+$utilisateur = "root";
+$motdepasse = "";
+$basededonnees = "inscription-nws";
+
+// Connexion à la base de données en utilisant les paramètres définis ci-dessus
+$connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
+
+// Vérifier la connexion
+if ($connexion->connect_error) {
+    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+}
+
+if(isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'"; 
+    $result = $connexion->query($query); // Utilisez $connexion pour exécuter la requête
+} else {
+    $query = "SELECT * FROM inscription";
+    $result = $connexion->query($query); // Utilisez $connexion pour exécuter la requête
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +59,26 @@ include ('php/post.php');
             <a href="administration2.php">Modifier les contacts</a>
         </div>
     </nav>
+
+    <!-- BARRE DE RECHERCHE -->
+
+    <div class="recherche-barre">
+        <form method="post" action="administration3.php">
+            <input type="text" name="search" placeholder="Rechercher...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
+    <!-- Résultats de la recherche -->
+    <div class="resultats">
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<div class="resultat-item">';
+            echo '<p>' . $row['nom'] . ' ' . $row['prenom'] . '</p>'; // Personnalisez l'affichage selon votre structure de base de données
+            echo '</div>';
+        }
+        ?>
+    </div>
 
     <!-- FOOTER COLOR -->
 
