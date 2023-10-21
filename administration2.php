@@ -72,7 +72,7 @@ if (isset($_POST['send'])) {
                     echo '<td>' . $row['email'] . '</td>';
                     echo '<td>' . $row['telephone'] . '</td>';
                     echo '<td>';
-                    echo '<input type="button" value="supprimer" onclick="update_suppr.php(' . $row['suppr'] . ')">';
+                    echo '<input type="button" value="supprimer" onclick="updateSuppr(' . $row['suppr'] . ')">';
                     echo '</td>';
                     echo '</tr>';
                 }                 
@@ -97,10 +97,10 @@ if (isset($_POST['send'])) {
     <!-- requete sql suppr -->
 
     <script>
-        function updateSuppr(id) {
+        function updateSuppr(suppr) {
             $.ajax({
                 type: 'POST',
-                url: 'update_suppr.php',
+                url: 'php/update_suppr.php',
                 data: { id: id },
                 success: function(response) {
                     if (response === 'success') {
