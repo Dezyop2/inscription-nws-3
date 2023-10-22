@@ -2,12 +2,6 @@
 
 include('php/connexion.php');
 
-if (isset($_POST['send'])) {
-    $search = $_POST['search'];
-    $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'";
-    $result = $connexion->query($query);
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +11,12 @@ if (isset($_POST['send'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo_nws.png" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://kit.fontawesome.com/66ce4227d4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/index.css" href="css/admin.css">   
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/admin.css">
+
    
     <title>Inscription</title>
 </head>
@@ -54,6 +49,16 @@ if (isset($_POST['send'])) {
         </form>
     </div>
 
+    <?php
+        if (isset($_POST['send'])) {
+            $search = $_POST['search'];
+            $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'";
+            $result = $connexion->query($query);
+        }        
+    ?>
+
+    <!-- TABLEAU DE RECHERCHE -->
+
     <div class="search-results">
         <?php
         if (isset($_POST['send'])) {
@@ -61,20 +66,21 @@ if (isset($_POST['send'])) {
             $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'";
             $result = $connexion->query($query);
 
-            echo '<table class="tableau-admin">';
-            echo '<tr><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th></tr>';
+            echo '<div class="tableau-admin"><table><thead>';
+            echo '<tr><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Supprimer</th></tr>';
+            echo '</thead>';
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    echo '<tbody>';
                     echo '<tr>';
                     echo '<td>' . $row['nom'] . '</td>';
                     echo '<td>' . $row['prenom'] . '</td>';
                     echo '<td>' . $row['email'] . '</td>';
                     echo '<td>' . $row['telephone'] . '</td>';
-                    echo '<td>';
-                    echo '<input type="button" value="supprimer" onclick="updateSuppr(' . $row['suppr'] . ')">';
-                    echo '</td>';
+                    echo '<td><a href="php/suppr.php?id=' . $row["idinscription"] . '">X</a></td>';
                     echo '</tr>';
+                    echo '</tbody>';
                 }                 
             } else {
                 echo '<tr><td colspan="4">Aucun résultat trouvé.</td></tr>';
@@ -93,25 +99,6 @@ if (isset($_POST['send'])) {
         <div class="blue"></div>
         <div class="yellow"></div>
     </div>
-
-    <!-- requete sql suppr -->
-
-    <script>
-        function updateSuppr(suppr) {
-            $.ajax({
-                type: 'POST',
-                url: 'php/update_suppr.php',
-                data: { id: id },
-                success: function(response) {
-                    if (response === 'success') {
-                        alert('Mise à jour réussie');
-                    } else {
-                        alert('Échec de la mise à jour');
-                    }
-                }
-            });
-        }
-    </script>
 
 </body>
 </html>
