@@ -35,7 +35,7 @@
 
     <!-- TABLEAU ADMIN -->
     
-    <form method="GET">
+    <form class="selection" method="GET">
         <select id="trier" name="trier">
             <optgroup label="trier par :">
                 <option value="tNom">Nom</option>

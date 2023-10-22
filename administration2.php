@@ -10,6 +10,7 @@ include('php/connexion.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo_nws.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0-beta3/css/all.min.css" integrity="sha384-BH6ACw9RdqzR6ccwJ4k3lMMJZgZn4XLR0HbQfT9jE34eOZN10jAVYXU4KI4KZxsC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -73,8 +74,8 @@ include('php/connexion.php');
                         echo '<td><input type="text" name="prenom[]" value="' . $row["prenom"] . '"></td>';
                         echo '<td><input type="text" name="email[]" value="' . $row["email"] . '"></td>';
                         echo '<td><input type="text" name="telephone[]" value="' . $row["telephone"] . '"></td>';
-                        echo '<td><input type="hidden" name="ideleves[]" value="' . $row["idinscription"] . '"><input type="submit" name="modifier" value="Modifier"></td>';
-                        echo '<td><a href="php/suppr.php?id=' . $row["idinscription"] . '">X</a></td>';
+                        echo '<td><input type="hidden" name="ideleves[]" value="' . $row["idinscription"] . '"><input class="boutton-modif" type="submit" name="modifier" value="Modifier"></td>';
+                        echo '<td><a href="php/suppr.php?id=' . $row["idinscription"] . '"><i class="fas fa-times" style="color: red;"></i></a></td>';
                         echo '</tr>';
                         echo '</tbody>';
                     }                 
