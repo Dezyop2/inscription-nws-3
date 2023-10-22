@@ -35,10 +35,12 @@ tbody tr:nth-child(even) {
 /* SELECT BOUTON */
 
 .select-container {
-    margin: 5;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 5%;
     background-color: #f2f2f2;
     width: 25%;
-    padding: 10px;
 }
 
 select {
