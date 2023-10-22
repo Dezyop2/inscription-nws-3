@@ -34,14 +34,18 @@
     </nav>
 
     <!-- TABLEAU ADMIN -->
-
-    <div class="select-container">
-        <select>
-            <option value="0">A à Z</option>
-            <option value="1">Z à A</option>
+    
+    <form method="GET">
+        <select id="trier" name="trier">
+            <optgroup label="trier par :">
+                <option value="tNom">Nom</option>
+                <option value="tPrenom">Prénom</option>
+                <option value="tEmail">Email</option>
+                <option value="tTel">Téléphone</option>
+            </optgroup>
         </select>
-    </div>
-
+        <input type="submit" value="Trier">
+    </form>
 
     <div class="tableau-admin">
         <table>
@@ -54,7 +58,11 @@
                 </tr>
             </thead>
             <tbody>
-                <?php include ('php/get.php');?>
+                <?php 
+                    include ('php/get.php');
+                    $trier = isset($_GET['trier']) ? $_GET['trier'] : 'tNom';
+                    ListeInscri($trier);
+                ?>
             </tbody>
         </table>
     </div>

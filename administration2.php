@@ -49,46 +49,43 @@ include('php/connexion.php');
         </form>
     </div>
 
-    <?php
-        if (isset($_POST['send'])) {
-            $search = $_POST['search'];
-            $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'";
-            $result = $connexion->query($query);
-        }        
-    ?>
+
 
     <!-- TABLEAU DE RECHERCHE -->
 
     <div class="search-results">
-        <?php
-        if (isset($_POST['send'])) {
-            $search = $_POST['search'];
-            $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'";
-            $result = $connexion->query($query);
+        <form method='post' action="php/update.php">
+            <?php
+            if (isset($_POST['send'])) {
+                $search = $_POST['search'];
+                $query = "SELECT * FROM inscription WHERE nom LIKE '%$search%' AND suppr = 0 OR prenom LIKE '%$search%' AND suppr = 0";
+                $result = $connexion->query($query);
 
-            echo '<div class="tableau-admin"><table><thead>';
-            echo '<tr><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Supprimer</th></tr>';
-            echo '</thead>';
+                echo '<div class="tableau-admin"><table><thead>';
+                echo '<tr><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Modifier</th><th>Supprimer</th></tr>';
+                echo '</thead>';
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '<tbody>';
-                    echo '<tr>';
-                    echo '<td>' . $row['nom'] . '</td>';
-                    echo '<td>' . $row['prenom'] . '</td>';
-                    echo '<td>' . $row['email'] . '</td>';
-                    echo '<td>' . $row['telephone'] . '</td>';
-                    echo '<td><a href="php/suppr.php?id=' . $row["idinscription"] . '">X</a></td>';
-                    echo '</tr>';
-                    echo '</tbody>';
-                }                 
-            } else {
-                echo '<tr><td colspan="4">Aucun résultat trouvé.</td></tr>';
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<tbody>';
+                        echo '<tr>';
+                        echo '<td><input type="text" name="nom[]" value="' . $row["nom"] . '"></td>';
+                        echo '<td><input type="text" name="prenom[]" value="' . $row["prenom"] . '"></td>';
+                        echo '<td><input type="text" name="email[]" value="' . $row["email"] . '"></td>';
+                        echo '<td><input type="text" name="telephone[]" value="' . $row["telephone"] . '"></td>';
+                        echo '<td><input type="hidden" name="ideleves[]" value="' . $row["idinscription"] . '"><input type="submit" name="modifier" value="Modifier"></td>';
+                        echo '<td><a href="php/suppr.php?id=' . $row["idinscription"] . '">X</a></td>';
+                        echo '</tr>';
+                        echo '</tbody>';
+                    }                 
+                } else {
+                    echo '<tr><td colspan="4">Aucun résultat trouvé.</td></tr>';
+                }
+
+                echo '</table>';
             }
-
-            echo '</table>';
-        }
-        ?>
+            ?>
+        </form>
     </div>
 
 
